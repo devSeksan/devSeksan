@@ -1,11 +1,6 @@
 ## Hi there 👋
 <div align="center">
 
-  <!-- 1. แถบสถานะสีเขียว Matrix พร้อม Animation กวาดจากซ้ายไปขวา -->
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=devSeksan&theme=matrix&area=true&hide_border=false&border_color=30363d&border_radius=12" width="95%" />
-
-  <br><br>
-
   <!-- 2. กรอบข้อความ Terminal สไตล์ Mac (มีปุ่ม 3 สี แดง-เหลือง-เขียว) -->
   <a href="https://github.com/devSeksan">
     <img src="https://github-stats-terminal-style-five.vercel.app/api/stats?username=devSeksan&headerStyle=mac&theme=tokyonight" width="95%" />
