@@ -7,7 +7,6 @@ HERE = os.path.dirname(__file__)
 IN_PATH = os.path.join(HERE, "..", "data", "contributions.json")
 OUT_PATH = os.path.join(HERE, "..", "contrib-heatmap.svg")
 
-# GitHub-ish green ramp: empty -> brightest. Level 5 is a brighter neon top end.
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
 
 CELL = 12
@@ -27,13 +26,10 @@ ACCENT = "#22d3ee"
 GREEN = "#39d353"
 GOLD = "#f2cc60"
 
-# # reveal timing (one-shot)
-# COL_T = 0.018   # per-column delay contribution (left -> right sweep)
-# ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
-# CELL_DUR = 0.42
-COL_T = 0.025   # ปรับจาก 0.018 เป็น 0.025 (ให้คลื่นวิ่งซ้ายไปขวาช้าลงและเห็นชัดขึ้น)
-ROW_T = 0.045   # ความช้าในการตกจากบนลงล่าง
-CELL_DUR = 0.45 # ความนุ่มนวลของสปีด
+COL_T = 0.018
+ROW_T = 0.045
+CELL_DUR = 0.42
+
 
 def level_for(count):
     if count == 0:
@@ -51,7 +47,7 @@ def level_for(count):
 
 def build_grid(days):
     first = datetime.date.fromisoformat(days[0]["date"])
-    lead_pad = (first.weekday() + 1) % 7  # sunday=0
+    lead_pad = (first.weekday() + 1) % 7
     grid = []
     col = [None] * lead_pad
     for d in days:
@@ -106,9 +102,9 @@ def render(data, username="devSeksan"):
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{canvas_w}" height="{canvas_h}" '
         f'viewBox="0 0 {canvas_w} {canvas_h}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">',
         f'<style>{css}</style>',
-        '<defs>',
-        f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">',
-        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>',
+        '<defs>'
+        f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>'
         '</defs>',
         f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
         f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
@@ -131,7 +127,6 @@ def render(data, username="devSeksan"):
         y = grid_top + wi * STEP + CELL * 0.78
         parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{MUTED}" font-size="9">{wname}</text>')
 
-    # the boxes -- each a rounded rect, diagonal slide-down reveal (once, freeze)
     for ci, column in enumerate(grid):
         gx = grid_left + ci * STEP
         for ri, cell in enumerate(column):
@@ -147,7 +142,6 @@ def render(data, username="devSeksan"):
                 f'<title>{date_s}: {count} contribution{plural}</title></rect>'
             )
 
-    # legend: Less [][][][][] More (bottom-right of the grid)
     leg_y = grid_top + art_h + 6
     leg_x = canvas_w - PAD - (len(PALETTE) * (CELL - 1) + 70)
     parts.append(f'<text x="{leg_x}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10" text-anchor="end">Less</text>')
@@ -167,7 +161,6 @@ def render(data, username="devSeksan"):
     rng = data["range"]
 
     ly = sep_y + 24
-    # left column: big highlighted numbers; right column: context in muted
     parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{GREEN}">'
                  f'<tspan font-weight="700">{total:,}</tspan>'
                  f'<tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
