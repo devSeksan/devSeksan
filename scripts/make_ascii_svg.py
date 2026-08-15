@@ -1,46 +1,72 @@
-cat_ascii = [
-    "         /\\_/\\          ",
-    "        ( o.o )  ☕     ",
-    "        >  ^  <  [~]    ",
-    "       /       \\  |     ",
-    "      (  | | |  ) |     ",
-    "     (___| | |___/      ",
-    "   =================    ",
-    "   | devSeksan's Dev |   ",
-    "   =================    ",
+ascii_rows = [
+    "                 .---.                  ",
+    "                /     \\                 ",
+    "               | () () |   ☕           ",
+    "                \\  _  /   [~]           ",
+    "        .---.____/     \\____.---.       ",
+    "       /  /      \\     /     \\  \\       ",
+    "      |  |   ( )  \\   /  ( )  |  |      ",
+    "      |  |         | |        |  |      ",
+    "      |  |    ___  | |  ___   |  |      ",
+    "      \\  \\   (   ) | | (   )  /  /      ",
+    "       '--'\\  \\ /  | |  \\ /  / '--'     ",
+    "            \\__\\___|_|___/__/           ",
+    "             |  |  ===== |  |           ",
+    "             |  |  ----- |  |           ",
+    "             |  |________|  |           ",
+    "             /               \\          ",
+    "            /  devseksan.dev  \\         ",
+    "           /___________________\\        ",
 ]
 
-lines_svg = []
-for i, line in enumerate(cat_ascii):
-    delay = i * 0.08
-    y = 55 + (i * 22)
-    lines_svg.append(
-        f'<text x="25" y="{y}" class="ascii-line" style="animation-delay: {delay:.2f}s;">{line}</text>'
+rows_svg = []
+for i, r in enumerate(ascii_rows):
+    delay = i * 0.04
+    y = 60 + (i * 15.5)
+    rows_svg.append(
+        f'<text x="24" y="{y:.1f}" class="ascii-line" style="animation-delay: {delay:.2f}s;">{r}</text>'
     )
 
-svg_content = f"""<svg xmlns="http://www.w3.org/2000/svg" width="370" height="340" viewBox="0 0 370 340">
+svg_content = f"""<svg xmlns="http://www.w3.org/2000/svg" width="370" height="375" viewBox="0 0 370 375">
   <style>
     .bg {{ fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 8px; }}
-    .title {{ font-family: monospace; font-size: 12px; fill: #58a6ff; }}
+    .title {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace; font-size: 11px; fill: #7d8590; }}
     .ascii-line {{
-      font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
-      font-weight: bold;
-      fill: #58a6ff;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 500;
+      fill: #e6edf3;
       white-space: pre;
       opacity: 0;
-      animation: typeIn 0.3s ease-out forwards;
+      animation: fadeInRow 0.25s ease-out forwards;
     }}
-    @keyframes typeIn {{
-      from {{ opacity: 0; transform: translateX(-6px); }}
-      to {{ opacity: 1; transform: translateX(0); }}
+    .footer-prompt {{
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      fill: #8b949e;
+    }}
+    .footer-val {{ fill: #58a6ff; font-weight: bold; }}
+    @keyframes fadeInRow {{
+      from {{ opacity: 0; transform: translateY(-3px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
     }}
   </style>
 
-  <rect width="370" height="340" class="bg" />
-  <text x="16" y="24" class="title">🔴 🟡 🟢  cat_avatar.sh</text>
+  <rect width="370" height="375" class="bg" />
+  
+  <!-- Mac Window Dots & Title -->
+  <circle cx="18" cy="18" r="4.5" fill="#ff5f56" />
+  <circle cx="32" cy="18" r="4.5" fill="#ffbd2e" />
+  <circle cx="46" cy="18" r="4.5" fill="#27c93f" />
+  <text x="185" y="21" class="title" text-anchor="middle">devSeksan@github: ~$ ./portrait.sh</text>
 
-  {''.join(lines_svg)}
+  <!-- ASCII Art Body -->
+  {''.join(rows_svg)}
+
+  <!-- Footer Prompt -->
+  <text x="24" y="354" class="footer-prompt">
+    devSeksan@github:~$ whoami <tspan class="footer-val">Seksan</tspan>
+  </text>
 </svg>"""
 
 with open("avi-ascii.svg", "w", encoding="utf-8") as f:

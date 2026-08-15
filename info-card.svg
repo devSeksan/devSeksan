@@ -1,59 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="490" height="340" viewBox="0 0 490 340">
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="375" viewBox="0 0 490 375">
   <style>
-    .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 8px; }
-    .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, monospace; font-size: 13px; fill: #c9d1d9; }
-    .title { font-family: monospace; font-size: 12px; fill: #58a6ff; }
-    .key { fill: #7ee787; font-weight: bold; }
-    .val { fill: #c9d1d9; }
-    .highlight { fill: #ffa657; font-weight: bold; }
-
-    .line { opacity: 0; animation: fadeIn 0.4s ease-out forwards; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .bg {{ fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 8px; }}
+    .title {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace; font-size: 11px; fill: #7d8590; }}
+    .mono {{ font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }}
+    .wordmark {{
+      font-size: 11px;
+      fill: #e6edf3;
+      white-space: pre;
+      font-weight: bold;
+    }}
+    .key {{ font-size: 12px; fill: #58a6ff; font-weight: bold; }}
+    .val {{ font-size: 12px; fill: #c9d1d9; }}
+    .hl {{ font-size: 12px; fill: #7ee787; font-weight: bold; }}
+    .dim {{ font-size: 11px; fill: #8b949e; }}
+    
+    .anim-row {{ opacity: 0; animation: fadeInRow 0.3s ease-out forwards; }}
+    @keyframes fadeInRow {{
+      from {{ opacity: 0; transform: translateY(4px); }}
+      to {{ opacity: 1; transform: translateY(0); }}
+    }}
   </style>
 
-  <rect width="490" height="340" class="bg" />
+  <rect width="490" height="375" class="bg" />
   
-  <!-- Mac Window Header -->
-  <text x="16" y="24" class="title">🔴 🟡 🟢  devSeksan@profile ~ $ neofetch</text>
+  <!-- Mac Window Dots & Title -->
+  <circle cx="18" cy="18" r="4.5" fill="#ff5f56" />
+  <circle cx="32" cy="18" r="4.5" fill="#ffbd2e" />
+  <circle cx="46" cy="18" r="4.5" fill="#27c93f" />
+  <text x="245" y="21" class="title" text-anchor="middle">devSeksan@github: ~$ ./wordmark.sh --3d</text>
 
-  <!-- Info Content with staggered animation -->
-  <g class="text">
-    <g class="line" style="animation-delay: 0.1s;">
-      <text x="20" y="60" class="highlight">devSeksan</text>
-      <text x="90" y="60" fill="#8b949e">--------------------------------</text>
+  <!-- 3D ASCII Wordmark -->
+  <g class="mono wordmark anim-row" style="animation-delay: 0.1s;">
+    <text x="35" y="58">  ccSSSSSS     ++sssss    **sssss    **ssss  </text>
+    <text x="35" y="73">  cSSSSSSSS    `ssssss   **ssssss    ==ssss  </text>
+    <text x="35" y="88">  ccSSSSSSS     ``ssssss  *ssssss    ==ssss  </text>
+    <text x="35" y="103">  cSSSSSSSS      +ssssss**sssss      ==ssss  </text>
+    <text x="35" y="118">  cSSSSSSSSS      +sssssssssss       ==ssss  </text>
+    <text x="35" y="133">  ccSSSSS+SSSSs    `+ssssssss        ==ssss  </text>
+    <text x="35" y="148">  +SSSSSS  +SSSSS     =`ssss         =ssss   </text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="30" y1="168" x2="460" y2="168" stroke="#30363d" stroke-dasharray="4 4" />
+
+  <!-- Info Key-Values -->
+  <g class="mono">
+    <g class="anim-row" style="animation-delay: 0.3s;">
+      <text x="35" y="198" class="key">Role</text>
+      <text x="110" y="198" class="val">: Software Developer / CS Student</text>
     </g>
-    <g class="line" style="animation-delay: 0.2s;">
-      <text x="20" y="90" class="key">Role</text>
-      <text x="90" y="90" class="val">: Software Developer / Student</text>
+    <g class="anim-row" style="animation-delay: 0.4s;">
+      <text x="35" y="226" class="key">Stack</text>
+      <text x="110" y="226" class="val">: Python, TypeScript, React, Go</text>
     </g>
-    <g class="line" style="animation-delay: 0.3s;">
-      <text x="20" y="120" class="key">Focus</text>
-      <text x="90" y="120" class="val">: Web Development &amp; Algorithms</text>
+    <g class="anim-row" style="animation-delay: 0.5s;">
+      <text x="35" y="254" class="key">Focus</text>
+      <text x="110" y="254" class="val">: Algorithms (DSA) &amp; Modern Web</text>
     </g>
-    <g class="line" style="animation-delay: 0.4s;">
-      <text x="20" y="150" class="key">Stack</text>
-      <text x="90" y="150" class="val">: Python, JavaScript, TypeScript</text>
+    <g class="anim-row" style="animation-delay: 0.6s;">
+      <text x="35" y="282" class="key">Tools</text>
+      <text x="110" y="282" class="val">: Docker, Linux, Git, VS Code</text>
     </g>
-    <g class="line" style="animation-delay: 0.5s;">
-      <text x="20" y="180" class="key">Tools</text>
-      <text x="90" y="180" class="val">: Git, Docker, VS Code, Linux</text>
+    <g class="anim-row" style="animation-delay: 0.7s;">
+      <text x="35" y="310" class="hl">DSA</text>
+      <text x="110" y="310" class="val">: Active Problem Solver 🚀</text>
     </g>
-    <g class="line" style="animation-delay: 0.6s;">
-      <text x="20" y="210" class="key">DSA</text>
-      <text x="90" y="210" class="val">: LeetCode &amp; Problem Solving 🚀</text>
-    </g>
-    <g class="line" style="animation-delay: 0.7s;">
-      <text x="20" y="250" class="highlight">Highlights</text>
-      <text x="90" y="250" fill="#8b949e">--------------------------------</text>
-    </g>
-    <g class="line" style="animation-delay: 0.8s;">
-      <text x="20" y="280" class="val">• 🎯 Building open-source projects</text>
-    </g>
-    <g class="line" style="animation-delay: 0.9s;">
-      <text x="20" y="305" class="val">• ☕ Coffee &amp; Code Enthusiast</text>
+    <g class="anim-row" style="animation-delay: 0.8s;">
+      <text x="35" y="342" class="dim">★ Passionate about building clean &amp; fast software</text>
     </g>
   </g>
 </svg>

@@ -1,24 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="370" height="340" viewBox="0 0 370 340">
+<svg xmlns="http://www.w3.org/2000/svg" width="370" height="375" viewBox="0 0 370 375">
   <style>
     .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 8px; }
-    .title { font-family: monospace; font-size: 12px; fill: #58a6ff; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace; font-size: 11px; fill: #7d8590; }
     .ascii-line {
-      font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
-      font-weight: bold;
-      fill: #58a6ff;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      font-weight: 500;
+      fill: #e6edf3;
       white-space: pre;
       opacity: 0;
-      animation: typeIn 0.3s ease-out forwards;
+      animation: fadeInRow 0.25s ease-out forwards;
     }
-    @keyframes typeIn {
-      from { opacity: 0; transform: translateX(-6px); }
-      to { opacity: 1; transform: translateX(0); }
+    .footer-prompt {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11px;
+      fill: #8b949e;
+    }
+    .footer-val { fill: #58a6ff; font-weight: bold; }
+    @keyframes fadeInRow {
+      from { opacity: 0; transform: translateY(-3px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 
-  <rect width="370" height="340" class="bg" />
-  <text x="16" y="24" class="title">🔴 🟡 🟢  cat_avatar.sh</text>
+  <rect width="370" height="375" class="bg" />
+  
+  <!-- Mac Window Dots & Title -->
+  <circle cx="18" cy="18" r="4.5" fill="#ff5f56" />
+  <circle cx="32" cy="18" r="4.5" fill="#ffbd2e" />
+  <circle cx="46" cy="18" r="4.5" fill="#27c93f" />
+  <text x="185" y="21" class="title" text-anchor="middle">devSeksan@github: ~$ ./portrait.sh</text>
 
-  <text x="25" y="55" class="ascii-line" style="animation-delay: 0.00s;">         /\_/\          </text><text x="25" y="77" class="ascii-line" style="animation-delay: 0.08s;">        ( o.o )  ☕     </text><text x="25" y="99" class="ascii-line" style="animation-delay: 0.16s;">        >  ^  <  [~]    </text><text x="25" y="121" class="ascii-line" style="animation-delay: 0.24s;">       /       \  |     </text><text x="25" y="143" class="ascii-line" style="animation-delay: 0.32s;">      (  | | |  ) |     </text><text x="25" y="165" class="ascii-line" style="animation-delay: 0.40s;">     (___| | |___/      </text><text x="25" y="187" class="ascii-line" style="animation-delay: 0.48s;">   =================    </text><text x="25" y="209" class="ascii-line" style="animation-delay: 0.56s;">   | devSeksan's Dev |   </text><text x="25" y="231" class="ascii-line" style="animation-delay: 0.64s;">   =================    </text>
+  <!-- ASCII Art Body -->
+  <text x="24" y="60.0" class="ascii-line" style="animation-delay: 0.00s;">                 .---.                  </text><text x="24" y="75.5" class="ascii-line" style="animation-delay: 0.04s;">                /     \                 </text><text x="24" y="91.0" class="ascii-line" style="animation-delay: 0.08s;">               | () () |   ☕           </text><text x="24" y="106.5" class="ascii-line" style="animation-delay: 0.12s;">                \  _  /   [~]           </text><text x="24" y="122.0" class="ascii-line" style="animation-delay: 0.16s;">        .---.____/     \____.---.       </text><text x="24" y="137.5" class="ascii-line" style="animation-delay: 0.20s;">       /  /      \     /     \  \       </text><text x="24" y="153.0" class="ascii-line" style="animation-delay: 0.24s;">      |  |   ( )  \   /  ( )  |  |      </text><text x="24" y="168.5" class="ascii-line" style="animation-delay: 0.28s;">      |  |         | |        |  |      </text><text x="24" y="184.0" class="ascii-line" style="animation-delay: 0.32s;">      |  |    ___  | |  ___   |  |      </text><text x="24" y="199.5" class="ascii-line" style="animation-delay: 0.36s;">      \  \   (   ) | | (   )  /  /      </text><text x="24" y="215.0" class="ascii-line" style="animation-delay: 0.40s;">       '--'\  \ /  | |  \ /  / '--'     </text><text x="24" y="230.5" class="ascii-line" style="animation-delay: 0.44s;">            \__\___|_|___/__/           </text><text x="24" y="246.0" class="ascii-line" style="animation-delay: 0.48s;">             |  |  ===== |  |           </text><text x="24" y="261.5" class="ascii-line" style="animation-delay: 0.52s;">             |  |  ----- |  |           </text><text x="24" y="277.0" class="ascii-line" style="animation-delay: 0.56s;">             |  |________|  |           </text><text x="24" y="292.5" class="ascii-line" style="animation-delay: 0.60s;">             /               \          </text><text x="24" y="308.0" class="ascii-line" style="animation-delay: 0.64s;">            /  devseksan.dev  \         </text><text x="24" y="323.5" class="ascii-line" style="animation-delay: 0.68s;">           /___________________\        </text>
+
+  <!-- Footer Prompt -->
+  <text x="24" y="354" class="footer-prompt">
+    devSeksan@github:~$ whoami <tspan class="footer-val">Seksan</tspan>
+  </text>
 </svg>
