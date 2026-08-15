@@ -7,7 +7,7 @@
           <span>🔴 🟡 🟢</span> &nbsp;&nbsp;
           <code style="color: #7ee787;">user@github:~$ ./contributions.sh --theme=matrix</code>
         </div>
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_GITHUB_USERNAME&theme=matrix&area=true&hide_border=true" width="100%" />
+        <img src="https://github-readme-activity-graph.vercel.app/graph?username=devSeksan&theme=matrix&area=true&hide_border=true" width="100%" />
       </td>
     </tr>
   </table>
