@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="340" viewBox="0 0 490 340">
+  <style>
+    .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 8px; }
+    .text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, monospace; font-size: 13px; fill: #c9d1d9; }
+    .title { font-family: monospace; font-size: 12px; fill: #58a6ff; }
+    .key { fill: #7ee787; font-weight: bold; }
+    .val { fill: #c9d1d9; }
+    .highlight { fill: #ffa657; font-weight: bold; }
+
+    .line { opacity: 0; animation: fadeIn 0.4s ease-out forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <rect width="490" height="340" class="bg" />
+  
+  <!-- Mac Window Header -->
+  <text x="16" y="24" class="title">🔴 🟡 🟢  devSeksan@profile ~ $ neofetch</text>
+
+  <!-- Info Content with staggered animation -->
+  <g class="text">
+    <g class="line" style="animation-delay: 0.1s;">
+      <text x="20" y="60" class="highlight">devSeksan</text>
+      <text x="90" y="60" fill="#8b949e">--------------------------------</text>
+    </g>
+    <g class="line" style="animation-delay: 0.2s;">
+      <text x="20" y="90" class="key">Role</text>
+      <text x="90" y="90" class="val">: Software Developer / Student</text>
+    </g>
+    <g class="line" style="animation-delay: 0.3s;">
+      <text x="20" y="120" class="key">Focus</text>
+      <text x="90" y="120" class="val">: Web Development &amp; Algorithms</text>
+    </g>
+    <g class="line" style="animation-delay: 0.4s;">
+      <text x="20" y="150" class="key">Stack</text>
+      <text x="90" y="150" class="val">: Python, JavaScript, TypeScript</text>
+    </g>
+    <g class="line" style="animation-delay: 0.5s;">
+      <text x="20" y="180" class="key">Tools</text>
+      <text x="90" y="180" class="val">: Git, Docker, VS Code, Linux</text>
+    </g>
+    <g class="line" style="animation-delay: 0.6s;">
+      <text x="20" y="210" class="key">DSA</text>
+      <text x="90" y="210" class="val">: LeetCode &amp; Problem Solving 🚀</text>
+    </g>
+    <g class="line" style="animation-delay: 0.7s;">
+      <text x="20" y="250" class="highlight">Highlights</text>
+      <text x="90" y="250" fill="#8b949e">--------------------------------</text>
+    </g>
+    <g class="line" style="animation-delay: 0.8s;">
+      <text x="20" y="280" class="val">• 🎯 Building open-source projects</text>
+    </g>
+    <g class="line" style="animation-delay: 0.9s;">
+      <text x="20" y="305" class="val">• ☕ Coffee &amp; Code Enthusiast</text>
+    </g>
+  </g>
+</svg>
