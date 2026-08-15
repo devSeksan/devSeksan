@@ -42,7 +42,7 @@
 
         <!-- LeetCode Dynamic Stats Card -->
         <div align="center">
-          <img src="https://leetcard.jacoblin.cool/YOUR_LEETCODE_USERNAME?theme=dark&font=Fira%20Code&ext=heatmap" width="95%" />
+          <img src="https://leetcard.jacoblin.cool/devSeksan?theme=dark&font=Fira%20Code&ext=heatmap" width="95%" />
         </div>
       </td>
     </tr>
