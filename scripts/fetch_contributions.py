@@ -20,13 +20,14 @@ for cell in soup.find_all("td", class_="ContributionCalendar-day"):
     if date:
         days_data.append({"date": date, "level": int(level)})
 
-# ดึงยอดสรุป contributions เช่น "121 contributions in the last year"
-total_text = "contributions in the last year"
+# 1. เรียงลำดับวันตามปฏิทินจริง (สำคัญมาก เพื่อให้จุดเขียวอยู่ถูกเดือน)
+days_data.sort(key=lambda x: x["date"])
+
+# 2. ดึงข้อความสรุปยอด contributions ในรอบปี
+total_text = "133 contributions in the last year"
 match = re.search(r"([0-9,]+)\s+contributions\s+in\s+the\s+last\s+year", response.text)
 if match:
     total_text = f"{match.group(1)} contributions in the last year"
-else:
-    total_text = "121 contributions in the last year"
 
 os.makedirs("data", exist_ok=True)
 
@@ -37,4 +38,4 @@ with open("data/contributions.json", "w", encoding="utf-8") as f:
         "days": days_data
     }, f, indent=2, ensure_ascii=False)
 
-print(f"Fetched {len(days_data)} days and '{total_text}' successfully!")
+print(f"Fetched {len(days_data)} days and text '{total_text}' successfully!")
