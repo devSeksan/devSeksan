@@ -8,7 +8,7 @@
 
   <!-- 2. กรอบข้อความ Terminal สไตล์ Mac (มีปุ่ม 3 สี แดง-เหลือง-เขียว) -->
   <a href="https://github.com/devSeksan">
-    <img src="https://github-stats-terminal-style-five.vercel.app/api/stats?username=YOUR_USERNAME&headerStyle=mac&theme=tokyonight" width="95%" />
+    <img src="https://github-stats-terminal-style-five.vercel.app/api/stats?username=devSeksan&headerStyle=mac&theme=tokyonight" width="95%" />
   </a>
 
 </div>
