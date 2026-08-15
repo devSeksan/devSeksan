@@ -2,7 +2,7 @@
 <div align="center">
 
   <!-- 1. แถบสถานะสีเขียว Matrix พร้อม Animation กวาดจากซ้ายไปขวา -->
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME&theme=matrix&area=true&hide_border=false&border_color=30363d&border_radius=12" width="95%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=devSeksan&theme=matrix&area=true&hide_border=false&border_color=30363d&border_radius=12" width="95%" />
 
   <br><br>
 
