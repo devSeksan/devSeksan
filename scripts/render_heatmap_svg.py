@@ -4,11 +4,11 @@ import datetime
 with open("data/contributions.json", encoding="utf-8") as f:
     data = json.load(f)
 
-# ดึง 53 สัปดาห์ล่าสุด (53 * 7 = 371 วัน)
+# ดึง 53 สัปดาห์ล่าสุด (371 วัน)
 days = data.get("days", [])[-371:]
 total_text = data.get("total_text", "133 contributions in the last year")
 
-# โทนสีเขียวตามแบบฉบับของ GitHub
+# โทนสีเขียว Matrix/GitHub
 PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
 MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -37,7 +37,7 @@ if days:
 
 month_svg = "".join([f'<text x="{mx}" y="15" class="label">{mname}</text>' for mx, mname in month_labels])
 
-# 2. วาดตารางช่องสี่เหลี่ยมโค้งมน พร้อมแอนิเมชันเลื่อนในแนวทแยง
+# 2. วาดตารางช่องสี่เหลี่ยม: แอนิเมชันช้าลง + แสง Neon Flash วาบตอนเปิดตัว
 svg_cells = []
 for i, day in enumerate(days):
     col = i // 7
@@ -45,13 +45,19 @@ for i, day in enumerate(days):
     x = START_X + col * STEP
     y = START_Y + row * STEP
     lvl = day.get("level", 0)
-    color = PALETTE[min(lvl, len(PALETTE) - 1)]
-    delay = (col * 0.012) + (row * 0.02)
+    target_color = PALETTE[min(lvl, len(PALETTE) - 1)]
+    
+    # คำนวณจังหวะหน่วงเวลา (Smoother & Slower diagonal delay)
+    delay = (col * 0.032) + (row * 0.04)
+    
+    # สีแสงวาบตอนเริ่มโผล่ (ช่องที่มีงานเขียนโค้ดจะวาบสีเขียวนีออนสว่าง)
+    flash_color = "#69f0a0" if lvl > 0 else "#21262d"
     
     svg_cells.append(
-        f'<rect x="{x}" y="{y}" width="{CELL_SIZE}" height="{CELL_SIZE}" rx="2.5" fill="{color}" opacity="0">'
-        f'<animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="{delay:.2f}s" fill="freeze" />'
-        f'<animateTransform attributeName="transform" type="translate" from="0 -5" to="0 0" dur="0.3s" begin="{delay:.2f}s" fill="freeze" />'
+        f'<rect x="{x}" y="{y}" width="{CELL_SIZE}" height="{CELL_SIZE}" rx="2.5" fill="{flash_color}" opacity="0">'
+        f'<animate attributeName="opacity" from="0" to="1" dur="0.45s" begin="{delay:.2f}s" fill="freeze" />'
+        f'<animate attributeName="fill" from="{flash_color}" to="{target_color}" dur="0.75s" begin="{delay:.2f}s" fill="freeze" />'
+        f'<animateTransform attributeName="transform" type="translate" from="0 -6" to="0 0" dur="0.45s" begin="{delay:.2f}s" fill="freeze" />'
         f'</rect>'
     )
 
@@ -63,6 +69,15 @@ else:
     total_svg = f'<tspan font-weight="700" fill="#f0f6fc">{total_text}</tspan>'
 
 heatmap_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="860" height="165" viewBox="0 0 860 165" fill="none">
+  <defs>
+    <!-- ลำแสงเลเซอร์สีเขียวนีออนสำหรับเอฟเฟกต์กวาดผ่านหน้าจอ -->
+    <linearGradient id="lightBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#39d353" stop-opacity="0" />
+      <stop offset="50%" stop-color="#69f0a0" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#39d353" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
   <style>
     .label {{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
@@ -86,6 +101,12 @@ heatmap_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="860" height="16
   <!-- Grid of Contribution Cells -->
   {''.join(svg_cells)}
 
+  <!-- ลำแสง Wave Sweep วิ่งผ่านตารางจากซ้ายไปขวา -->
+  <rect x="0" y="{START_Y - 4}" width="160" height="{7 * STEP + 8}" rx="6" fill="url(#lightBeam)" opacity="0" pointer-events="none">
+    <animate attributeName="x" from="{START_X - 160}" to="{START_X + 53 * STEP + 20}" dur="1.7s" begin="0.35s" fill="freeze" />
+    <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.85;1" dur="1.7s" begin="0.35s" fill="freeze" />
+  </rect>
+
   <!-- Footer Total Text -->
   <text x="{START_X}" y="{START_Y + 7 * STEP + 20}" class="footer-text">
     {total_svg}
@@ -95,4 +116,4 @@ heatmap_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="860" height="16
 with open("contrib-heatmap.svg", "w", encoding="utf-8") as f:
     f.write(heatmap_svg)
 
-print("Generated contrib-heatmap.svg successfully!")
+print("Generated smooth sweeping contrib-heatmap.svg successfully!")
