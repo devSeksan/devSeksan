@@ -1,34 +1,16 @@
 <div align="center">
 
-```text
-🔴 🟡 🟢  zsh — devSeksan@github:~$ ./contributions.sh --theme=matrix
-```
+<h3><code>devSeksan@github ~ $ ./contributions.sh</code></h3>
+<img src="./contrib-heatmap.svg" width="860" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=devSeksan&theme=matrix&area=true&hide_border=true&bg_color=0D1117&color=00FF66&line=00FF66&point=FFFFFF" width="100%" />
+<br><br>
 
-</div>
-
-<br>
-
-<div align="center">
-
-```text
-🔴 🟡 🟢  zsh — whoami --verbose
-╭────────────────────────────────────────────────────────────────────────╮
-│                                                                        │
-│    /\_/\           [ PROFILE ]                                         │
-│   ( o.o )          • Name   : Seksan                                   │
-│    > ^ <           • Role   : Software Developer / Student             │
-│   /  -  \          • Stack  : Python, JavaScript, TypeScript           │
-│  (  . .  )         • Focus  : Data Structures, Algorithms & Web Dev    │
-│                                                                        │
-│   [ AVATAR ]       [ LEETCODE & DSA ]                                  │
-│                    • Status : Active Problem Solver 🚀                 │
-│                    • Target : Grind 75 / LeetCode Daily                │
-│                                                                        │
-╰────────────────────────────────────────────────────────────────────────╯
-```
-
-<img src="https://leetcard.jacoblin.cool/devSeksan?theme=dark&font=Fira%20Code&ext=heatmap" width="100%" />
+<h3><code>devSeksan@github ~ $ whoami</code></h3>
+<table>
+  <tr>
+    <td valign="top"><img src="./avi-ascii.svg" width="370" /></td>
+    <td valign="top"><img src="./info-card.svg" width="490" /></td>
+  </tr>
+</table>
 
 </div>
