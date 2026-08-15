@@ -27,11 +27,13 @@ ACCENT = "#22d3ee"
 GREEN = "#39d353"
 GOLD = "#f2cc60"
 
-# reveal timing (one-shot)
-COL_T = 0.018   # per-column delay contribution (left -> right sweep)
-ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
-CELL_DUR = 0.42
-
+# # reveal timing (one-shot)
+# COL_T = 0.018   # per-column delay contribution (left -> right sweep)
+# ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
+# CELL_DUR = 0.42
+COL_T = 0.025   # ปรับจาก 0.018 เป็น 0.025 (ให้คลื่นวิ่งซ้ายไปขวาช้าลงและเห็นชัดขึ้น)
+ROW_T = 0.045   # ความช้าในการตกจากบนลงล่าง
+CELL_DUR = 0.45 # ความนุ่มนวลของสปีด
 
 def level_for(count):
     if count == 0:
